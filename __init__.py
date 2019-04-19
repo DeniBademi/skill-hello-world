@@ -19,7 +19,13 @@ from adapt.intent import IntentBuilder
 
 from mycroft.skills.core import MycroftSkill
 from mycroft.util.log import getLogger
-
+from os.path import dirname
+from adapt.intent import IntentBuilder
+from mycroft.skills.core import MycroftSkill
+from mycroft.util.log import getLogger
+import requests
+import urllib.request
+import ssl
 __author__ = 'eward'
 
 LOGGER = getLogger(__name__)
