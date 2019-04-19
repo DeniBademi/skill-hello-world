@@ -37,21 +37,21 @@ class HelloWorldSkill(MycroftSkill):
 
     def initialize(self):
         thank_you_intent = IntentBuilder("ThankYouIntent"). \                   #LAMP 1 ON
-            require("ThankYouKeyword").build()
+            require("TurnOnLamp1").build()
         self.register_intent(thank_you_intent, self.handle_thank_you_intent)
 
         how_are_you_intent = IntentBuilder("HowAreYouIntent"). \                #LAMP 1 OFF
-            require("HowAreYouKeyword").build()
+            require("TurnOffLamp1").build()
         self.register_intent(how_are_you_intent,
                              self.handle_how_are_you_intent)
 
         hello_world_intent = IntentBuilder("HelloWorldIntent"). \               #LAMP 2 ON
-            require("HelloWorldKeyword").build()
+            require("TurnOnLamp2").build()
         self.register_intent(hello_world_intent,
                              self.handle_hello_world_intent)
         
         hello_world_intent2 = IntentBuilder("HelloWorldIntent2"). \             #LAMP 2 OFF
-            require("HelloWorldKeyword2").build()
+            require("TurnOffLamp2").build()
         self.register_intent(hello_world_intent2,
                              self.handle_hello_world_intent2)
         
