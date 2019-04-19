@@ -43,15 +43,26 @@ class HelloWorldSkill(MycroftSkill):
             require("HelloWorldKeyword").build()
         self.register_intent(hello_world_intent,
                              self.handle_hello_world_intent)
+        
+        hello_world_intent2 = IntentBuilder("HelloWorldIntent2"). \
+            require("HelloWorldKeyword2").build()
+        self.register_intent(hello_world_intent2,
+                             self.handle_hello_world_intent2)
+        
+        
 
     def handle_thank_you_intent(self, message):
-        self.speak_dialog("welcome")
+        requests.post('http://192.168.0.116/lamp1/on', data={"password":"sezam otvori se"})
 
     def handle_how_are_you_intent(self, message):
-        self.speak_dialog("how.are.you")
+        requests.post('http://192.168.0.116/lamp1/off', data={"password":"sezam otvori se"})
 
     def handle_hello_world_intent(self, message):
-        self.speak_dialog("hello.world")
+        requests.post('http://192.168.0.116/lamp2/on', data={"password":"sezam otvori se"})
+      
+    def handle_hello_world_intent2(self, message):
+        requests.post('http://192.168.0.116/lamp2/off', data={"password":"sezam otvori se"})
+
 
     def stop(self):
         pass
