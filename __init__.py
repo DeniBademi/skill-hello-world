@@ -27,7 +27,8 @@ class HelloWorldSkill(MycroftSkill):
     def initialize(self):
         thank_you_intent = IntentBuilder("ThankYouIntent"). \                   #LAMP 1 ON
             require("TurnOnLamp1").build()
-        self.register_intent(thank_you_intent, self.handle_thank_you_intent)
+        self.register_intent(thank_you_intent, 
+                             self.handle_thank_you_intent)
 
         how_are_you_intent = IntentBuilder("HowAreYouIntent"). \                #LAMP 1 OFF
             require("TurnOffLamp1").build()
