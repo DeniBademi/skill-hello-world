@@ -15,7 +15,35 @@ from os.path import dirname
 import requests
 import urllib.request
 import ssl
-__author__ = 'deniBademi'
+# Copyright 2016 Mycroft AI, Inc.
+#
+# This file is part of Mycroft Core.
+#
+# Mycroft Core is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Mycroft Core is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Mycroft Core.  If not, see <http://www.gnu.org/licenses/>.
+
+from adapt.intent import IntentBuilder
+
+from mycroft.skills.core import MycroftSkill
+from mycroft.util.log import getLogger
+from os.path import dirname
+from adapt.intent import IntentBuilder
+from mycroft.skills.core import MycroftSkill
+from mycroft.util.log import getLogger
+import requests
+import urllib.request
+import ssl
+__author__ = 'eward'
 
 LOGGER = getLogger(__name__)
 
@@ -26,22 +54,21 @@ class HelloWorldSkill(MycroftSkill):
 
     def initialize(self):
         thank_you_intent = IntentBuilder("ThankYouIntent"). \                   #LAMP 1 ON
-            require("TurnOnLamp1").build()
-        self.register_intent(thank_you_intent, 
-                             self.handle_thank_you_intent)
+            require("ThankYouKeyword").build()
+        self.register_intent(thank_you_intent, self.handle_thank_you_intent)
 
         how_are_you_intent = IntentBuilder("HowAreYouIntent"). \                #LAMP 1 OFF
-            require("TurnOffLamp1").build()
+            require("HowAreYouKeyword").build()
         self.register_intent(how_are_you_intent,
                              self.handle_how_are_you_intent)
 
         hello_world_intent = IntentBuilder("HelloWorldIntent"). \               #LAMP 2 ON
-            require("TurnOnLamp2").build()
+            require("HelloWorldKeyword").build()
         self.register_intent(hello_world_intent,
                              self.handle_hello_world_intent)
         
         hello_world_intent2 = IntentBuilder("HelloWorldIntent2"). \             #LAMP 2 OFF
-            require("TurnOffLamp2").build()
+            require("HelloWorldKeyword2").build()
         self.register_intent(hello_world_intent2,
                              self.handle_hello_world_intent2)
         
