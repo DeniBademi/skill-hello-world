@@ -47,7 +47,7 @@ class HelloWorldSkill(MycroftSkill):
         
 
     def handle_thank_you_intent(self, message):
-        requests.post('http://10.106.1.211/lamp1/on', data={"password":"sezam otvori se"})
+        requests.post('http://192.169.1.6/lamp1/on', data={"password":"sezam otvori se"})
 
     def handle_how_are_you_intent(self, message):
         requests.post('http://10.106.1.211/lamp1/off', data={"password":"sezam otvori se"})
